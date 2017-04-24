@@ -1,0 +1,52 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+
+<!--   <div class="input-group" style="text-align: center" >
+      <input type="text" class="form-control" id="search-input" placeholder="Search for...">
+      <span class="input-group-btn" style="width: 1px">
+        <button class="btn btn-default" id="search-button" style="width: 60px;" type="button">Search</button>
+      </span>
+    </div> -->
+<!-- <form style="text-align: center;" action="/homepage/index/">
+	<div class="form-group">
+		<input class="form-control" type="text" id="search" name="user_search" />
+	</div>
+	<button type="submit">Search</button>
+</form> -->
+
+<form action="" method="post">
+	${ csrf_input }
+	${ form.as_table() }
+	<button type="submit"> Search </button>
+</form>
+
+
+<br>
+<br>
+%if quotes:
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Author</th>
+			<th>Quote</th>
+			<th>Tags</th>
+		</tr>
+	%for q in quotes:
+		<tr>
+
+			<td>${q.id}</td>
+			<td>${q.author}</td>
+			<td style="font-style: italic ">'${q.quote}'</td>
+			<td>${q.tags}</td>
+		</tr>
+	%endfor
+	</table>
+%else:
+<div style="text-align: center">
+	Sorry no results, try again.
+
+</div>
+%endif
+</%block>
