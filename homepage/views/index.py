@@ -11,7 +11,7 @@ import operator
 
 @view_function
 def process_request(request):
-    # #GET.get will return none and not an error
+    # #GET.get will return none and not an error d
     # print('>>>>', request.GET.get('user_search'))
 
 
